@@ -111,14 +111,6 @@ public class HotelReservationStepDef extends Utilities {
                 "Response does not indicate missing parameter. Actual response: " + bookingResponse.getBody().asString());
     }
 
-    @Then("validate the response with json schema {string}")
-    public void validate_the_response_with_json_schema(String schemaFileName) {
-        bookingResponse.then().log().body();
-        bookingResponse.then()
-                .assertThat()
-                .body(JsonSchemaValidator.matchesJsonSchemaInClasspath(schemaFileName));
-    }
-
     @Given("the user wants to check the room details")
     public void theUserWantsToCheckTheRoomDetails() {
         bookingSpec = requestGetSetup().cookie("token", authToken);
@@ -131,19 +123,46 @@ public class HotelReservationStepDef extends Utilities {
 
     @When("the user asks the details of the room by:")
     public void theUserAsksTheDetailsOfTheRoomByRoomIdRoomid(String roomid) {
-        bookingResponse = bookingSpec.when().get("https://automationintesting.online/api/booking/"+roomid);
+        bookingResponse = bookingSpec.when().get("api/room/"+roomid);
         bookingResponse.then().log().body();
         System.out.println(bookingResponse.body().toString());
     }
 
     @Then("details of the room is available:")
     public void detailsOfTheRoomIsAvailable(DataTable dataTable) {
-        List<String> expectedFields = dataTable.asList();
+
+        List<String> expectedFields = dataTable.asList(String.class);
+
         for (String field : expectedFields) {
+            Object value = bookingResponse.jsonPath().get(field);
+
             assertNotNull(
-                    bookingResponse.jsonPath().get(field),
+                    value.toString(),
                     field + " should be present in response"
             );
         }
+    }
+
+    @And("the response matches with json schema {string}")
+    public void theResponseMatchesWithJsonSchema(String schemaFileName) {
+        bookingResponse.then().log().body();
+        bookingResponse.then()
+                .assertThat()
+                .body(JsonSchemaValidator.matchesJsonSchemaInClasspath(schemaFileName));
+    }
+
+    @Given("the user wants to check the room summary")
+    public void theUserWantsToCheckTheRoomSummary() {
+
+    }
+
+    @Then("the user should see response with incorrect {string}")
+    public void theUserShouldSeeResponseWithIncorrect(String expectedFieldError) {
+        String responseBody = bookingResponse.getBody().asString();
+        System.out.println(responseBody);
+        assertTrue(
+                responseBody.contains(expectedFieldError),
+                "Expected error message not found. Actual response: " + responseBody
+        );
     }
 }
