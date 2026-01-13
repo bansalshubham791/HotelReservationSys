@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.simple.JSONObject;
@@ -28,7 +29,7 @@ public class HotelReservationStepDef {
     private Response bookingResponse;
     protected String authToken;
     private RequestSpecification bookingSpec;
-    private Map<String, String> bookingRequest;
+   // private Map<String, String> bookingRequest;
     private RequestSpecification loginRequest;
 
 
@@ -58,30 +59,34 @@ public class HotelReservationStepDef {
 
     @Given("the user enters guest details")
     public void theUserEntersGuestDetails(DataTable dataTable) {
-        bookingRequest = new HashMap<>();
+       // bookingRequest = new HashMap<>();
 
         List<Map<String, String>> rows =
                 dataTable.asMaps(String.class, String.class);
 
         Map<String, String> row = rows.get(0);
 
+        JSONObject bookingRequestBody = new JSONObject();
+
         // Build bookingdates object
         JSONObject bookingDates = new JSONObject();
+
         bookingDates.put("checkin", row.get("checkin"));
         bookingDates.put("checkout", row.get("checkout"));
 
-        bookingRequest.put("firstname", row.get("firstname"));
-        bookingRequest.put("lastname", row.get("lastname"));
-        bookingRequest.put("email", row.get("email"));
-        bookingRequest.put("phone", row.get("phone"));
-        bookingRequest.put("roomType", row.get("roomType"));
-        bookingRequest.put("bookingDates", row.get("bookingDates"));
+        bookingRequestBody.put("firstname", row.get("firstname"));
+        bookingRequestBody.put("lastname", row.get("lastname"));
+        bookingRequestBody.put("email", row.get("email"));
+        bookingRequestBody.put("phone", row.get("phone"));
+        bookingRequestBody.put("roomid", Integer.parseInt(row.get("roomid")));
+        bookingRequestBody.put("bookingDates", bookingDates);
+        bookingRequestBody.put("depositpaid", Boolean.parseBoolean(row.get("depositpaid")));
 
-        JSONObject jsonObject = new JSONObject(bookingRequest);
+        //JSONObject jsonObject = new JSONObject(bookingRequest);
         if (bookingSpec == null){
             bookingSpec = given();
         }
-        bookingSpec.body(jsonObject);
+        bookingSpec.body(bookingRequestBody.toString());
 
         bookingSpec.queryParam("checkin", row.get("checkin"));
         bookingSpec.queryParam("checkout", row.get("checkout"));
@@ -107,5 +112,13 @@ public class HotelReservationStepDef {
     public void aConfirmationWithBookingIDIsDisplayed() {
         assertTrue(bookingResponse.getBody().asString().contains("bookingid"),
                 "Response does not indicate missing parameter. Actual response: " + bookingResponse.getBody().asString());
+    }
+
+    @Then("validate the response with json schema {string}")
+    public void validate_the_response_with_json_schema(String schemaFileName) {
+        bookingResponse.then().log().body();
+        bookingResponse.then()
+                .assertThat()
+                .body(JsonSchemaValidator.matchesJsonSchemaInClasspath(schemaFileName));
     }
 }

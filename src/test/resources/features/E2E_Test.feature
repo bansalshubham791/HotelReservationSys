@@ -18,13 +18,13 @@ Feature: Hotel Room Booking
     @positive
   Scenario Outline: Successful hotel room booking
     Given the user enters guest details
-      | firstname   | lastname   |  email              | phone       |  roomType    | checkin   | checkout    |
-      | <firstname> | <lastname> | <email>             | <phone>     |  <roomType>  | <checkin> | <checkout>  |
+      | firstname   | lastname   |  email              | phone       |  roomid    | checkin   | checkout    | depositpaid |
+      | <firstname> | <lastname> | <email>             | <phone>     |  <roomid>  | <checkin> | <checkout>  | <depositpaid> |
     And the user submits the booking
     Then the booking should be successfully created with response code 201
     And a confirmation with booking ID is displayed
 
     Examples:
-      | checkin    | checkout   | roomType | firstname | lastname | email                  | phone       |
-      | 2026-03-10 | 2026-03-12 | 1         | Alice     | Smith    | alice.smith@mail.com   | 91234567890  |
-      | 2026-04-15 | 2026-04-18 | 2         | Bob       | Jones    | bob.jones@mail.com     | 99876543210  |
+      | checkin    | checkout   | roomid | firstname | lastname | email                  | phone       |  depositpaid |
+      | 2026-03-10 | 2026-03-12 | 1         | Alice     | Smith    | alice.smith@mail.com   | 91234567890  |  false     |
+      | 2026-04-15 | 2026-04-18 | 2         | Bob       | Jones    | bob.jones@mail.com     | 99876543210  |  true      |

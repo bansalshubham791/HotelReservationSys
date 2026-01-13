@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="base classes added">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="step def added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/E2E_Test.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/E2E_Test.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768225390864</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="step def added">
+      <option name="closed" value="true" />
+      <created>1768229271299</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1768229271300</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -148,7 +155,8 @@
     <MESSAGE value="Runner file added" />
     <MESSAGE value="Runner file and Utils added" />
     <MESSAGE value="base classes added" />
-    <option name="LAST_COMMIT_MESSAGE" value="base classes added" />
+    <MESSAGE value="step def added" />
+    <option name="LAST_COMMIT_MESSAGE" value="step def added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -157,6 +165,21 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
