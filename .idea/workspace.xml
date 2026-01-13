@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="step def added">
+    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="json schema validator added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/base/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runner/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runner/TestRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/E2E_Test.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/E2E_Test.feature" afterDir="false" />
     </list>
@@ -37,7 +40,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TestNG.Run.executor": "Run",
+    "TestNG.Run.executor": "Debug",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "onboarding.tips.debug.path": "C:/Users/DELL/IdeaProjects/HotelReservationSys/src/main/java/org/example/Main.java"
@@ -147,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768229271300</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="json schema validator added">
+      <option name="closed" value="true" />
+      <created>1768279981117</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1768279981117</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -156,7 +167,8 @@
     <MESSAGE value="Runner file and Utils added" />
     <MESSAGE value="base classes added" />
     <MESSAGE value="step def added" />
-    <option name="LAST_COMMIT_MESSAGE" value="step def added" />
+    <MESSAGE value="json schema validator added" />
+    <option name="LAST_COMMIT_MESSAGE" value="json schema validator added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -167,19 +179,28 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/src/test/java/base/Utilities.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="4" />
+          <line>133</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="5" />
+          <line>134</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/base/Utilities.java</url>
+          <line>19</line>
+          <properties class="base.Utilities" method="requestGetSetup">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

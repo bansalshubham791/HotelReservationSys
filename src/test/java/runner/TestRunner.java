@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = {"stepdefinitions"}, tags = "@HotelReservationSystemRegression",
+        glue = {"stepdefinitions"}, tags = "@getroomdetails",
         plugin = {"pretty", "html:target/cucumber-report.html"}
 )
 public class TestRunner extends AbstractTestNGCucumberTests {

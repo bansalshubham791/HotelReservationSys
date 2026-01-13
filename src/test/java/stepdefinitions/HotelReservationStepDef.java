@@ -2,6 +2,7 @@ package stepdefinitions;
 
 import base.BookingDates;
 import base.BookingRequest;
+import base.Utilities;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -19,17 +20,15 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+import static io.restassured.RestAssured.*;
+import static org.testng.AssertJUnit.assertNotNull;
 
-public class HotelReservationStepDef {
-    BookingDates dates;
-    String requestBody;
-    int bookingId;
+public class HotelReservationStepDef extends Utilities {
 
     private Response loginResponse;
     private Response bookingResponse;
     protected String authToken;
     private RequestSpecification bookingSpec;
-   // private Map<String, String> bookingRequest;
     private RequestSpecification loginRequest;
 
 
@@ -39,7 +38,7 @@ public class HotelReservationStepDef {
         JSONObject requestBody = new JSONObject();
         requestBody.put("username", data.get("username"));
         requestBody.put("password", data.get("password"));
-        //System.out.println(requestBody.toString());
+
         loginRequest = given().body(requestBody.toString());
         loginRequest.header("Authorization", "automationintesting.online");
         loginRequest.header("Content-Type", "application/json");
@@ -48,18 +47,17 @@ public class HotelReservationStepDef {
     public void theSystemShouldAuthenticateTheUser() {
         loginResponse = loginRequest.when().post("https://automationintesting.online/api/auth/login");
         authToken = loginResponse.getBody().jsonPath().getString("token");
-        System.out.println(authToken);
-        // loginResponse.then().log().all();
+         loginResponse.then().log().all();
     }
     @And("the user should receive a valid session")
     public void theUserShouldReceiveAValidSession() {
         bookingSpec = given()
                 .cookie("token", authToken);
+       // System.out.println(bookingSpec.cookie("token").toString());
     }
 
     @Given("the user enters guest details")
     public void theUserEntersGuestDetails(DataTable dataTable) {
-       // bookingRequest = new HashMap<>();
 
         List<Map<String, String>> rows =
                 dataTable.asMaps(String.class, String.class);
@@ -69,35 +67,34 @@ public class HotelReservationStepDef {
         JSONObject bookingRequestBody = new JSONObject();
 
         // Build bookingdates object
-        JSONObject bookingDates = new JSONObject();
+        JSONObject bookingdates = new JSONObject();
 
-        bookingDates.put("checkin", row.get("checkin"));
-        bookingDates.put("checkout", row.get("checkout"));
+        bookingdates.put("checkin", row.get("checkin"));
+        bookingdates.put("checkout", row.get("checkout"));
 
         bookingRequestBody.put("firstname", row.get("firstname"));
         bookingRequestBody.put("lastname", row.get("lastname"));
         bookingRequestBody.put("email", row.get("email"));
         bookingRequestBody.put("phone", row.get("phone"));
         bookingRequestBody.put("roomid", Integer.parseInt(row.get("roomid")));
-        bookingRequestBody.put("bookingDates", bookingDates);
+        bookingRequestBody.put("bookingdates", bookingdates);
         bookingRequestBody.put("depositpaid", Boolean.parseBoolean(row.get("depositpaid")));
 
         //JSONObject jsonObject = new JSONObject(bookingRequest);
         if (bookingSpec == null){
             bookingSpec = given();
         }
-        bookingSpec.body(bookingRequestBody.toString());
+        bookingSpec = bookingSpec.body(bookingRequestBody.toString());
 
-        bookingSpec.queryParam("checkin", row.get("checkin"));
-        bookingSpec.queryParam("checkout", row.get("checkout"));
         bookingSpec.header("Authorization", "automationintesting.online");
         bookingSpec.header("Content-Type", "application/json");
-        System.out.println(bookingSpec);
-        //bookingSpec.body(bookingRequest);
+
     }
 
     @And("the user submits the booking")
     public void theUserSubmitsTheBooking() {
+       // baseURI = "https://automationintesting.online/";
+
         bookingResponse = bookingSpec.when().post("https://automationintesting.online/api/booking");
     }
 
@@ -120,5 +117,33 @@ public class HotelReservationStepDef {
         bookingResponse.then()
                 .assertThat()
                 .body(JsonSchemaValidator.matchesJsonSchemaInClasspath(schemaFileName));
+    }
+
+    @Given("the user wants to check the room details")
+    public void theUserWantsToCheckTheRoomDetails() {
+        bookingSpec = requestGetSetup().cookie("token", authToken);
+
+       /* bookingSpec = given()
+                .header("Content-Type", "application/json")
+                .header("Authorization", "automationintesting.online")
+                .cookie("token", authToken);*/
+    }
+
+    @When("the user asks the details of the room by:")
+    public void theUserAsksTheDetailsOfTheRoomByRoomIdRoomid(String roomid) {
+        bookingResponse = bookingSpec.when().get("https://automationintesting.online/api/booking/"+roomid);
+        bookingResponse.then().log().body();
+        System.out.println(bookingResponse.body().toString());
+    }
+
+    @Then("details of the room is available:")
+    public void detailsOfTheRoomIsAvailable(DataTable dataTable) {
+        List<String> expectedFields = dataTable.asList();
+        for (String field : expectedFields) {
+            assertNotNull(
+                    bookingResponse.jsonPath().get(field),
+                    field + " should be present in response"
+            );
+        }
     }
 }

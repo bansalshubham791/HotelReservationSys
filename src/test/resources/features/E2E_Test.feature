@@ -25,6 +25,7 @@ Feature: Hotel Room Booking
     And a confirmation with booking ID is displayed
 
     Examples:
-      | checkin    | checkout   | roomid | firstname | lastname | email                  | phone       |  depositpaid |
-      | 2026-03-10 | 2026-03-12 | 1         | Alice     | Smith    | alice.smith@mail.com   | 91234567890  |  false     |
-      | 2026-04-15 | 2026-04-18 | 2         | Bob       | Jones    | bob.jones@mail.com     | 99876543210  |  true      |
+      | checkin    | checkout   | roomid    | firstname | lastname | email                  | phone       |  depositpaid |
+      | 2026-03-10 | 2026-03-12 | 34         | Alice     | Smith    | alice.smith@mail.com   | 91234567890  |  false     |
+      | 2026-04-15 | 2026-04-18 | 11         | Bob       | Jones    | bob.jones@mail.com     | 99876543210  |  true      |
+
