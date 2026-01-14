@@ -11,9 +11,9 @@ Feature: Edit hotel booking
     Then the system should authenticate the user
     And the user should receive a valid session
 
-  @HappyFlow
+  @HappyFlow @UpdateBooking
   Scenario Outline: Update an existing booking
-    Given the user enters guest details
+    Given the room is available for the desired dates
       | firstname   | lastname   |  email              | phone       | checkin   | checkout    | depositpaid |
       | <firstname> | <lastname> | <email>             | <phone>     | <checkin> | <checkout>  | <depositpaid> |
     And the user submits the booking

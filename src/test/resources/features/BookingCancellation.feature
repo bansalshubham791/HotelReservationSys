@@ -10,13 +10,13 @@ Feature: Cancel hotel booking
       | password | password |
     Then the system should authenticate the user
     And the user should receive a valid session
-    Then the user enters guest details
+    Then the room is available for the desired dates
   | firstname | lastname |  email              | phone          | checkin   | checkout    | depositpaid |
   | James     | Dear     | james.dear@gmail.com | 989898989877  | 2026-05-10 | 2026-05-12 | false        |
     And the user submits the booking
     Then the booking should be successfully created with response code 201
 
-  @Positive
+  @Positive @CancelBooking
   Scenario: Cancel an existing booking successfully
     Given a booking exists with booking id
     When the user cancels the booking

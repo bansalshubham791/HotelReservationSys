@@ -6,14 +6,14 @@ Feature: Hotel Room Booking
 
   Background: create an auth token
 
-  @Positive
+  @Positive @CompleteFlow
   Scenario Outline: Successful hotel room booking
     Given the user submits valid login credentials:
       | username | admin    |
       | password | password |
     Then the system should authenticate the user
     And the user should receive a valid session
-    Then the user enters guest details
+    Then the room is available for the desired dates
       | firstname   | lastname   |  email              | phone       | checkin   | checkout    | depositpaid |
       | <firstname> | <lastname> | <email>             | <phone>     | <checkin> | <checkout>  | <depositpaid> |
     And the user submits the booking

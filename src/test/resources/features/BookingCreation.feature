@@ -12,9 +12,9 @@ Feature: Hotel Room Booking
     Then the system should authenticate the user
     And the user should receive a valid session
 
-  @Positive
+  @Positive @SuccessfulHotelBooking
   Scenario Outline: Successful hotel room booking
-    Given the user enters guest details
+    Given the room is available for the desired dates
       | firstname   | lastname   |  email              | phone       | checkin   | checkout    | depositpaid |
       | <firstname> | <lastname> | <email>             | <phone>     | <checkin> | <checkout>  | <depositpaid> |
     And the user submits the booking
@@ -27,9 +27,9 @@ Feature: Hotel Room Booking
       | 2026-03-10 | 2026-03-12 | Alice     | Smith    | alice.smith@mail.com   | 91234567890  |  false     |
       | 2026-04-15 | 2026-04-18 | Bob       | Jones    | bob.jones@mail.com     | 99876543210  |  true      |
 
-  @ErrorValidation @Negative
+  @ErrorValidation @Negative @IncorrectFieldValues
   Scenario Outline: create a booking with incorrect field values
-    Given the user enters guest details
+    Given the room is available for the desired dates
       | firstname   | lastname   |  email              | phone       | checkin   | checkout    | depositpaid |
       | <firstname> | <lastname> | <email>             | <phone>     | <checkin> | <checkout>  | <depositpaid> |
     And the user submits the booking

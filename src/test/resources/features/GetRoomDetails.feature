@@ -12,7 +12,7 @@ Feature: View hotel room information
     Then the system should authenticate the user
     And the user should receive a valid session
 
-  @Positive @HappyFlow
+  @Positive @HappyFlow @RoomDetails
   Scenario: Guest views details of an available hotel room
     Given the hotel offers rooms for booking
     When the guest requests details for room number 1
@@ -20,8 +20,8 @@ Feature: View hotel room information
     And the room should have a name and description
     And the room should display its price per night
     And the room should list the amenities available to the guest
-  @Negative @ErrorValidation
-  Scenario: Guest attempts to view details of a non-existent room
+  @Negative @ErrorValidation @NonExistentRoom
+  Scenario: Guest attempts to view details of a Nonon-existent room
     Given the hotel offers rooms for booking
     When the guest requests details for a room that does not exist like 100
     Then the system should inform the guest that the room could not be found

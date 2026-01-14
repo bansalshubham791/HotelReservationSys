@@ -61,7 +61,7 @@ public class HotelReservationStepDef extends Utilities {
        // System.out.println(bookingSpec.cookie("token").toString());
     }
 
-    @Given("the user enters guest details")
+    @Given("the room is available for the desired dates")
     public void theUserEntersGuestDetails(DataTable dataTable) {
         if (bookingSpec == null){
             bookingSpec = given();
@@ -341,4 +341,6 @@ public class HotelReservationStepDef extends Utilities {
         assertEquals(loginResponse.getStatusCode(), Integer.parseInt(statusCode),
                 "Unexpected error");
     }
+
+
 }
