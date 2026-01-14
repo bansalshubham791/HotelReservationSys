@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="E2E complete scenario added">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="Extent Report added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/BookingDates.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/BookingRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/Global.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/LoadProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/LoadProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestOutput/testng.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/base/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hooks/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hooks/Hooks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runner/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runner/TestRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/BookingEdition.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/BookingEdition.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/BookingCancellation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/BookingCancellation.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/BookingCreation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/BookingCreation.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +65,7 @@
       <option name="MAIN_CLASS_NAME" value="runner.TestRunner" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
+      <option name="VM_PARAMETERS" value="-Denv=local" />
       <option name="PARAMETERS" value="" />
       <option name="OUTPUT_DIRECTORY" value="C:\Users\DELL\IdeaProjects\HotelReservationSys\TestOutput" />
       <option name="TEST_SEARCH_SCOPE">
@@ -179,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768377898588</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Extent Report added">
+      <option name="closed" value="true" />
+      <created>1768380963838</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1768380963838</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -188,6 +193,16 @@
     <option featureType="dependencySupport" implementationName="java:org.testng:testng" />
     <option featureType="dependencySupport" implementationName="java:io.reactivex.rxjava3:rxjava" />
     <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feature file added" />
@@ -201,7 +216,8 @@
     <MESSAGE value="booking edition scenario addition" />
     <MESSAGE value="booking cancellation scenario added" />
     <MESSAGE value="E2E complete scenario added" />
-    <option name="LAST_COMMIT_MESSAGE" value="E2E complete scenario added" />
+    <MESSAGE value="Extent Report added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Extent Report added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -212,9 +228,14 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java</url>
+          <url>file://$PROJECT_DIR$/src/test/java/base/Utilities.java</url>
           <line>82</line>
-          <option name="timeStamp" value="21" />
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/base/Utilities.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

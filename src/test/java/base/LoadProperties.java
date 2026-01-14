@@ -1,34 +1,47 @@
 package base;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import groovy.beans.PropertyReader;
+
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-public class LoadProperties {
-    private static FileInputStream input;
-    private static Properties prop = null;
-    private static final Logger LOG = LogManager.getLogger(LoadProperties.class);
 
-    public static String getProperty(final String key) {
+public final class LoadProperties {
 
-        try {
-            input = new FileInputStream("src/test/resources/local.properties");
-            prop = new Properties();
-            prop.load(input);
-        } catch (FileNotFoundException e) {
-            LOG.error("Properties File Not Found", e);
-        } catch (IOException e) {
-            LOG.error("IO Exception when loading properties  ", e);
-        } finally {
-            try {
-                input.close();
-            } catch (IOException IOException) {
-                LOG.error("IO Exception when closing properties", IOException);
+    private static final Properties prop = new Properties();
+    private static final String FILE_NAME = "local.properties";
+    private static boolean isLoaded = false;
+
+    private void PropertyReader() {
+        // prevent instantiation
+    }
+
+    public static String getProperty(String key) {
+
+        if (!isLoaded) {
+            synchronized (PropertyReader.class) {
+                if (!isLoaded) {
+                    loadProperties();
+                    isLoaded = true;
+                }
             }
         }
         return prop.getProperty(key);
+    }
+
+    private static void loadProperties() {
+        try (InputStream input = PropertyReader.class
+                .getClassLoader()
+                .getResourceAsStream(FILE_NAME)) {
+
+            if (input == null) {
+                throw new RuntimeException("local.properties not found in resources");
+            }
+            prop.load(input);
+
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to load properties file", e);
+        }
     }
 }

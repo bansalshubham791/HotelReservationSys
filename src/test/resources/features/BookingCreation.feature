@@ -20,6 +20,7 @@ Feature: Hotel Room Booking
     And the user submits the booking
     Then the booking should be successfully created with response code 201
     And a confirmation with booking ID is displayed
+    And the response matches with json schema "booking.json"
 
     Examples:
       | checkin    | checkout   | firstname | lastname | email                  | phone       |  depositpaid |
