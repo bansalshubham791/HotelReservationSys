@@ -1,4 +1,4 @@
-@HotelReservationSystemRegression   @GetRoomDetails
+@HotelReservationSystemRegression   @GetBookingDetails
 
 Feature: Get Booking details
   As a visitor
@@ -11,7 +11,7 @@ When the user submits valid login credentials:
 Then the system should authenticate the user
 And the user should receive a valid session
 
-  @GetRoomDetails  @SchemaValidation
+  @GetBookingDetails  @SchemaValidation
   Scenario Outline: Get the details of the room by room id
     Given the user wants to check the room details
     When the user asks the details of the room by:

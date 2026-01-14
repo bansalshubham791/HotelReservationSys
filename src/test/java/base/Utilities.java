@@ -107,7 +107,37 @@ public class Utilities {
         return given().header("Content-Type", CONTENT_TYPE).accept(CONTENT_TYPE).header("Authorization", AUTHORIZATION).body(bookingRequestBody.toString());
     }
 
+    /**
+     *
+     * @return RequestSpecification
+     */
     public RequestSpecification requestGetRoomDetailsSetup(){
+        baseURI = LoadProperties.getProperty("base.URL");
+        CONTENT_TYPE = LoadProperties.getProperty("content.type");
+        AUTHORIZATION = LoadProperties.getProperty("authorization");
         return given().header("Content-Type", CONTENT_TYPE).accept(CONTENT_TYPE).header("Authorization", AUTHORIZATION);
     }
+
+    /**
+     *
+     * @return RequestSpecification
+     */
+    public RequestSpecification requestGetRoomAvailabilitySetup(){
+        baseURI = LoadProperties.getProperty("base.URL");
+        CONTENT_TYPE = LoadProperties.getProperty("content.type");
+        AUTHORIZATION = LoadProperties.getProperty("authorization");
+        return given().header("Content-Type", CONTENT_TYPE).accept(CONTENT_TYPE).header("Authorization", AUTHORIZATION);
+    }
+
+    /**
+     *
+     * @return RequestSpecification
+     */
+    public RequestSpecification requestGetReportSetup(){
+        baseURI = LoadProperties.getProperty("base.URL");
+        CONTENT_TYPE = LoadProperties.getProperty("content.type");
+        AUTHORIZATION = LoadProperties.getProperty("authorization");
+        return given().header("Content-Type", CONTENT_TYPE).accept(CONTENT_TYPE).header("Authorization", AUTHORIZATION);
+    }
+
 }

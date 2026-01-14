@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="Extent Report added">
+    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="ErrorValidation tag added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestOutput/testng.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/base/LoadProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/LoadProperties.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/base/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/Utilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hooks/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hooks/Hooks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runner/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runner/TestRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/BookingCancellation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/BookingCancellation.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/BookingCreation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/BookingCreation.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GetBookingDetails.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/GetBookingDetails.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GetRoomDetails.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/GetRoomDetails.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/properties/app.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +52,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DELL\IdeaProjects\HotelReservationSys\src\test\resources\properties" />
       <recent name="C:\Users\DELL\IdeaProjects\HotelReservationSys\src\test\resources" />
       <recent name="C:\Users\DELL\IdeaProjects\HotelReservationSys\src\test\resources\jsonSchema" />
     </key>
@@ -65,7 +67,7 @@
       <option name="MAIN_CLASS_NAME" value="runner.TestRunner" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-Denv=local" />
+      <option name="VM_PARAMETERS" value="-Denv=app" />
       <option name="PARAMETERS" value="" />
       <option name="OUTPUT_DIRECTORY" value="C:\Users\DELL\IdeaProjects\HotelReservationSys\TestOutput" />
       <option name="TEST_SEARCH_SCOPE">
@@ -184,7 +186,23 @@
       <option name="project" value="LOCAL" />
       <updated>1768380963838</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="get room details scenario added">
+      <option name="closed" value="true" />
+      <created>1768391147168</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1768391147168</updated>
+    </task>
+    <task id="LOCAL-00014" summary="ErrorValidation tag added">
+      <option name="closed" value="true" />
+      <created>1768391179105</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1768391179105</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -217,7 +235,9 @@
     <MESSAGE value="booking cancellation scenario added" />
     <MESSAGE value="E2E complete scenario added" />
     <MESSAGE value="Extent Report added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Extent Report added" />
+    <MESSAGE value="get room details scenario added" />
+    <MESSAGE value="ErrorValidation tag added" />
+    <option name="LAST_COMMIT_MESSAGE" value="ErrorValidation tag added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -231,11 +251,6 @@
           <url>file://$PROJECT_DIR$/src/test/java/base/Utilities.java</url>
           <line>82</line>
           <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/base/Utilities.java</url>
-          <line>106</line>
-          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

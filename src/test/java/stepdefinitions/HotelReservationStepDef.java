@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertNotNull;
@@ -30,6 +31,10 @@ public class HotelReservationStepDef extends Utilities {
     private Response cancelResponse;
     private RequestSpecification roomRequest;
     private Response roomResponse;
+    private RequestSpecification roomAvailabilityRequest;
+    private Response roomAvailabilityResponse;
+    private RequestSpecification reportRequest;
+    private Response reportResponse;
 
     @Given("the user submits valid login credentials:")
     public void the_user_submits_valid_login_credentials(DataTable dataTable) {
@@ -244,6 +249,96 @@ public class HotelReservationStepDef extends Utilities {
     @And("the room should have a name and description")
     public void theRoomShouldHaveANameAndDescription() {
         assertNotNull(roomResponse.getBody().jsonPath().getString("roomName"));
-        assertNotNull(roomResponse.getBody().jsonPath().getString("roomName"));
+        assertNotNull(roomResponse.getBody().jsonPath().getString("description"));
+    }
+
+    @And("the room should display its price per night")
+    public void theRoomShouldDisplayItsPricePerNight() {
+        assertNotNull(roomResponse.getBody().jsonPath().getString("roomPrice"));
+    }
+
+    @And("the room should list the amenities available to the guest")
+    public void theRoomShouldListTheAmenitiesAvailableToTheGuest() {
+        assertNotNull(roomResponse.getBody().jsonPath().getString("features"));
+    }
+
+    @When("the guest requests details for a room that does not exist like {int}")
+    public void theGuestRequestsDetailsForARoomThatDoesNotExistLike(int roomid) {
+        roomRequest = requestGetRoomDetailsSetup().cookie("token", authToken);
+        roomResponse = roomRequest.get("api/room/" + roomid);
+    }
+
+    @Then("the system should inform the guest that the room could not be found")
+    public void theSystemShouldInformTheGuestThatTheRoomNoCouldNotBeFound() {
+        roomResponse.then().log().body();
+        assertEquals(roomResponse.getStatusCode(), 500,
+                "Unexpected error");
+    }
+
+    @Given("the hotel accepts bookings for future dates")
+    public void theHotelAcceptsBookingsForFutureDates() {
+        roomAvailabilityRequest = requestGetRoomAvailabilitySetup().cookie("token", authToken);
+    }
+
+    @When("the guest searches for available rooms with a check-in date of {string}")
+    public void theGuestSearchesForAvailableRoomsWithACheckInDateOf(String checkin) {
+        roomAvailabilityRequest = roomAvailabilityRequest.queryParam("checkin", checkin);
+    }
+
+    @And("the check-out date is {string}")
+    public void theCheckOutDateIs(String checkout) {
+        roomAvailabilityRequest = roomAvailabilityRequest.queryParam("checkout", checkout);
+    }
+
+    @Then("the system should return the list of available rooms")
+    public void theSystemShouldReturnTheListOfAvailableRooms() {
+        roomAvailabilityResponse = roomAvailabilityRequest.get("api/room");
+        roomAvailabilityResponse.then().log().body();
+        roomAvailabilityResponse.then()
+                .statusCode(200)
+                .body("rooms", notNullValue())
+                .body("rooms.size()", greaterThanOrEqualTo(0));
+    }
+
+    @Given("the hotel has booking data available")
+    public void theHotelHasBookingDataAvailable() {
+        reportRequest = requestGetReportSetup().cookie("token", authToken);
+    }
+
+    @When("the hotel manager requests the booking report")
+    public void theHotelManagerRequestsTheBookingReport() {
+        reportResponse = reportRequest.get("api/report");
+    }
+
+    @Then("the system should generate the booking report")
+    public void theSystemShouldGenerateTheBookingReport() {
+        reportResponse.then().log().body();
+        assertEquals(reportResponse.getStatusCode(), 200,
+                "Unexpected error");
+    }
+
+    @Given("the user attempts to log in to the hotel booking system")
+    public void theUserAttemptsToLogInToTheHotelBookingSystem() {
+        if (loginRequest == null){
+            loginRequest = given();
+        }
+        loginRequest.header("Authorization", "automationintesting.online");
+        loginRequest.header("Content-Type", "application/json");
+    }
+
+    @When("the user submits the following credentials")
+    public void theUserSubmitsTheFollowingCredentials(DataTable dataTable) {
+        Map<String, String> data = dataTable.asMap(String.class, String.class);
+        JSONObject requestBody = new JSONObject();
+        requestBody.put("username", data.get("username"));
+        requestBody.put("password", data.get("password"));
+        loginRequest = given().body(requestBody.toString());
+    }
+
+    @Then("the system should return the response {string}")
+    public void theSystemShouldReturnTheResponse(String statusCode) {
+        loginResponse = loginRequest.when().post("https://automationintesting.online/api/auth/login");
+        assertEquals(loginResponse.getStatusCode(), Integer.parseInt(statusCode),
+                "Unexpected error");
     }
 }

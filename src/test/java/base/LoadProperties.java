@@ -10,7 +10,7 @@ import java.util.Properties;
 public final class LoadProperties {
 
     private static final Properties prop = new Properties();
-    private static final String FILE_NAME = "local.properties";
+    private static final String FILE_NAME = "properties/app.properties";
     private static boolean isLoaded = false;
 
     private void PropertyReader() {
@@ -36,7 +36,7 @@ public final class LoadProperties {
                 .getResourceAsStream(FILE_NAME)) {
 
             if (input == null) {
-                throw new RuntimeException("local.properties not found in resources");
+                throw new RuntimeException("app.properties not found in resources");
             }
             prop.load(input);
 
