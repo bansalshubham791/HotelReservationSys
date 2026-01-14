@@ -1,4 +1,4 @@
-@BookingCreation @HotelReservationSystemRegression
+@booking-creation @hotel-reservation-system-regression
 
 Feature: Hotel Room Booking
   As a visitor
@@ -12,7 +12,7 @@ Feature: Hotel Room Booking
     Then the system should authenticate the user
     And the user should receive a valid session
 
-  @Positive @SuccessfulHotelBooking
+  @positive @successful-hotel-booking
   Scenario Outline: Successful hotel room booking
     Given the room is available for the desired dates
       | firstname   | lastname   |  email              | phone       | checkin   | checkout    | depositpaid |
@@ -20,14 +20,14 @@ Feature: Hotel Room Booking
     And the user submits the booking
     Then the booking should be successfully created with response code 201
     And a confirmation with booking ID is displayed
-    And the response matches with json schema "booking.json"
+    And the response matches with json schema "getBookingDetails.json"
 
     Examples:
       | checkin    | checkout   | firstname | lastname | email                  | phone       |  depositpaid |
       | 2026-03-10 | 2026-03-12 | Alice     | Smith    | alice.smith@mail.com   | 91234567890  |  false     |
       | 2026-04-15 | 2026-04-18 | Bob       | Jones    | bob.jones@mail.com     | 99876543210  |  true      |
 
-  @ErrorValidation @Negative @IncorrectFieldValues
+  @error-validation @negative @incorrect-field-values
   Scenario Outline: create a booking with incorrect field values
     Given the room is available for the desired dates
       | firstname   | lastname   |  email              | phone       | checkin   | checkout    | depositpaid |

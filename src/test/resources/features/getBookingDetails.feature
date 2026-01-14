@@ -1,4 +1,4 @@
-@HotelReservationSystemRegression   @GetBookingDetails
+@hotel-reservation-system-regression   @get-booking-details
 
 Feature: Get Booking details
   As a visitor
@@ -11,7 +11,7 @@ When the user submits valid login credentials:
 Then the system should authenticate the user
 And the user should receive a valid session
 
-  @GetBookingDetails  @SchemaValidation
+  @get-booking-details  @schema-validation
   Scenario Outline: Get the details of the room by room id
     Given the user wants to check the room details
     When the user asks the details of the room by:
@@ -19,14 +19,14 @@ And the user should receive a valid session
     Then details of the room is available:
     | roomName  |
     | roomPrice |
-    And the response matches with json schema "room.json"
+    And the response matches with json schema "getRoomDetails.json"
 
     Examples:
       | roomid |
       | 1      |
       | 2      |
 
-  @GetRoomSummary
+  @get-room-summary
   Scenario Outline: Get the room booking summary
     Given the user wants to check the room booking summary
     When the user asks the room booking summary for "<roomid>"

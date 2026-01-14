@@ -1,4 +1,4 @@
-@GetBookingReport @HotelReservationSystemRegression
+@get-booking-report @hotel-reservation-system-regression
 Feature: Generate hotel booking report
   In order to monitor hotel performance and occupancy
   As a hotel manager
@@ -12,7 +12,7 @@ Feature: Generate hotel booking report
     Then the system should authenticate the user
     And the user should receive a valid session
 
-    @GetReport @HotelManagement
+    @get-report @hotel-management
   Scenario: Hotel manager generates a booking report
     Given the hotel has booking data available
     When the hotel manager requests the booking report

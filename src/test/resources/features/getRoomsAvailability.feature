@@ -1,4 +1,4 @@
-@GetRoomAvailability @HotelReservationSystemRegression
+@get-room-availability @hotel-reservation-system-regression
 Feature: Search for available hotel rooms
   In order to plan a hotel stay
   As a guest
@@ -11,7 +11,7 @@ Feature: Search for available hotel rooms
     Then the system should authenticate the user
     And the user should receive a valid session
 
-  @GetRoomList
+  @get-roomlist
   Scenario: Guest searches for available rooms for a valid stay period
     Given the hotel accepts bookings for future dates
     When the guest searches for available rooms with a check-in date of "2026-02-17"

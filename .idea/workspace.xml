@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="Login scenarios added" />
+    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="tags added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runner/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runner/TestRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/BookingCancellation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/bookingCancellation.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/BookingCreation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/bookingCreation.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/BookingEdition.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/bookingEdition.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/E2E_Test.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/e2e_Test.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GetBookingDetails.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/getBookingDetails.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GetBookingReport.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/getBookingReport.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GetRoomDetails.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/getRoomDetails.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GetRoomsAvailability.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/getRoomsAvailability.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/login.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/jsonSchema/booking.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/jsonSchema/getBookingDetails.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/jsonSchema/room.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/jsonSchema/getRoomDetails.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -200,7 +214,23 @@
       <option name="project" value="LOCAL" />
       <updated>1768397989184</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="for regression">
+      <option name="closed" value="true" />
+      <created>1768398200404</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1768398200405</updated>
+    </task>
+    <task id="LOCAL-00017" summary="tags added">
+      <option name="closed" value="true" />
+      <created>1768399838676</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1768399838676</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -236,7 +266,9 @@
     <MESSAGE value="get room details scenario added" />
     <MESSAGE value="ErrorValidation tag added" />
     <MESSAGE value="Login scenarios added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login scenarios added" />
+    <MESSAGE value="for regression" />
+    <MESSAGE value="tags added" />
+    <option name="LAST_COMMIT_MESSAGE" value="tags added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

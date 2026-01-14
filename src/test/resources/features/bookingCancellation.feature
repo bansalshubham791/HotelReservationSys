@@ -1,4 +1,4 @@
-@BookingCancellation @HotelReservationSystemRegression
+@booking-cancellation @hotel-reservation-system-regression
 Feature: Cancel hotel booking
   As a guest
   I want to cancel an existing booking
@@ -16,21 +16,21 @@ Feature: Cancel hotel booking
     And the user submits the booking
     Then the booking should be successfully created with response code 201
 
-  @Positive @CancelBooking
+  @positive @cancel-booking
   Scenario: Cancel an existing booking successfully
     Given a booking exists with booking id
     When the user cancels the booking
     Then the booking should be successfully cancelled with response code 200
     And the booking should no longer be retrievable
 
-  @Security
+  @security
   Scenario: Cancel booking without authentication
     Given a booking exists with booking id
     When the user attempts to cancel the booking without authentication
     Then the booking should not be successfully cancelled with response code 401
     And the user should see an error message "Authentication required"
 
-  @Negative @BookingCancelErrorValidation
+  @negative @booking-cancel-error-validation
   Scenario: Cancel a non-existent booking
     Given no booking exists with booking id "99999"
     Then the user should see an error message "Failed to delete booking"

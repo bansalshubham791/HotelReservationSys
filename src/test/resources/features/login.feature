@@ -1,10 +1,10 @@
-@Login @HotelReservationSystemRegression
+@login @hotel-reservation-system-regression
 Feature: Hotel booking login
   In order to access the hotel booking system
   As a guest or hotel manager
   I want to log in using valid credentials
 
-  @Authentication
+  @authentication
   Scenario: create an auth token
   When the user submits valid login credentials:
   | username | admin    |
@@ -12,7 +12,7 @@ Feature: Hotel booking login
   Then the system should authenticate the user
   And the user should receive a valid session
 
-    @ErrorValidation @LoginAuthentication
+    @error-validation @login-authentication
   Scenario Outline: User attempts login with different credentials
     Given the user attempts to log in to the hotel booking system
     When the user submits the following credentials

@@ -1,4 +1,4 @@
-@Business @HotelReservationSystemRegression @E2E
+@business @hotel-reservation-system-regression @e2e
 Feature: Hotel Room Booking
   As a visitor
   I want to search and book a hotel room
@@ -6,7 +6,7 @@ Feature: Hotel Room Booking
 
   Background: create an auth token
 
-  @Positive @CompleteFlow
+  @positive @complete-flow
   Scenario Outline: Successful hotel room booking
     Given the user submits valid login credentials:
       | username | admin    |
