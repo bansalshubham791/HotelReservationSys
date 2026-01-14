@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="ErrorValidation tag added">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/LoadProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/LoadProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/Utilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/runner/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runner/TestRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/BookingCancellation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/BookingCancellation.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GetBookingDetails.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/GetBookingDetails.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GetRoomDetails.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/GetRoomDetails.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/properties/app.properties" afterDir="false" />
-    </list>
+    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="Login scenarios added" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -202,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768391179105</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Login scenarios added">
+      <option name="closed" value="true" />
+      <created>1768397989184</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1768397989184</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -237,7 +235,8 @@
     <MESSAGE value="Extent Report added" />
     <MESSAGE value="get room details scenario added" />
     <MESSAGE value="ErrorValidation tag added" />
-    <option name="LAST_COMMIT_MESSAGE" value="ErrorValidation tag added" />
+    <MESSAGE value="Login scenarios added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login scenarios added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -251,6 +250,16 @@
           <url>file://$PROJECT_DIR$/src/test/java/base/Utilities.java</url>
           <line>82</line>
           <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java</url>
+          <line>334</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java</url>
+          <line>340</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
