@@ -1,7 +1,5 @@
 package stepdefinitions;
 
-import base.BookingDates;
-import base.BookingRequest;
 import base.Utilities;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
@@ -13,14 +11,12 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.simple.JSONObject;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
-import static io.restassured.RestAssured.*;
 import static org.testng.AssertJUnit.assertNotNull;
 
 public class HotelReservationStepDef extends Utilities {
@@ -59,7 +55,6 @@ public class HotelReservationStepDef extends Utilities {
 
     @Given("the user enters guest details")
     public void theUserEntersGuestDetails(DataTable dataTable) {
-
         List<Map<String, String>> rows =
                 dataTable.asMaps(String.class, String.class);
 

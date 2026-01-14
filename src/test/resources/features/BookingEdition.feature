@@ -23,6 +23,6 @@ Feature: Edit hotel booking
       | 34      | Lion  | Dear    | false        | 2026-03-11 | 2026-03-12 |
     Then the booking should be successfully updated with response code 200
     Examples:
-      | firstname | lastname | email              | phone       | checkin    | checkout   | depositpaid |
-      | Drax      | Eight     | drax.Eight@gmail.com| 98989898984 | 2026-02-22 | 2026-02-23 | true       |
+      | firstname | lastname | email              | phone       | checkin      | checkout   | depositpaid |
+      | Drax      | Eight     | drax.Eight@gmail.com| 98989898984 | 2026-02-22 | 2026-02-23 | true        |
 

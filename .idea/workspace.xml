@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="booking creation scenario, schema validation">
+    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="E2E complete scenario added">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/base/BookingDates.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/base/BookingRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/base/Global.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/base/LoadProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/LoadProperties.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/base/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/Utilities.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runner/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runner/TestRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/BookingCreation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/BookingCreation.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/E2E_Test.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/E2E_Test.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GetBookingDetails.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/GetBookingDetails.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/room.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/jsonSchema/room.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/jsonSchema/schema.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/BookingEdition.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/BookingEdition.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,47 +48,21 @@
     "TestNG.Run.executor": "Run",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/DELL/IdeaProjects/HotelReservationSys/TestOutput",
     "onboarding.tips.debug.path": "C:/Users/DELL/IdeaProjects/HotelReservationSys/src/main/java/org/example/Main.java"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\DELL\IdeaProjects\HotelReservationSys\src\test\resources\jsonSchema" />
       <recent name="C:\Users\DELL\IdeaProjects\HotelReservationSys\src\test\resources" />
+      <recent name="C:\Users\DELL\IdeaProjects\HotelReservationSys\src\test\resources\jsonSchema" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.Run">
-    <configuration name="HotelReservationSys" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="cmdOptions" />
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list />
-            </option>
-            <option name="multimoduleDir" />
-            <option name="pomFileName" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="projectsCmdOptionValues">
-              <list />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="Run" type="TestNG">
       <module name="HotelReservationSys" />
       <shortenClasspath name="NONE" />
+      <useClassPathOnly />
       <option name="SUITE_NAME" value="" />
       <option name="PACKAGE_NAME" value="runner" />
       <option name="MAIN_CLASS_NAME" value="runner.TestRunner" />
@@ -95,7 +70,7 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" value="" />
-      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="OUTPUT_DIRECTORY" value="C:\Users\DELL\IdeaProjects\HotelReservationSys\TestOutput" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
       </option>
@@ -106,10 +81,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Maven.HotelReservationSys" />
-      <item itemvalue="TestNG.Run" />
-    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -184,8 +155,39 @@
       <option name="project" value="LOCAL" />
       <updated>1768300391555</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="booking edition scenario addition">
+      <option name="closed" value="true" />
+      <created>1768372042967</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1768372042967</updated>
+    </task>
+    <task id="LOCAL-00010" summary="booking cancellation scenario added">
+      <option name="closed" value="true" />
+      <created>1768377340778</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1768377340778</updated>
+    </task>
+    <task id="LOCAL-00011" summary="E2E complete scenario added">
+      <option name="closed" value="true" />
+      <created>1768377898588</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1768377898588</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:io.cucumber:cucumber-java" />
+    <option featureType="dependencySupport" implementationName="java:junit:junit" />
+    <option featureType="dependencySupport" implementationName="java:org.testng:testng" />
+    <option featureType="dependencySupport" implementationName="java:io.reactivex.rxjava3:rxjava" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feature file added" />
@@ -196,7 +198,10 @@
     <MESSAGE value="json schema validator added" />
     <MESSAGE value="Added Utilities, Properties, Global.prop files" />
     <MESSAGE value="booking creation scenario, schema validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="booking creation scenario, schema validation" />
+    <MESSAGE value="booking edition scenario addition" />
+    <MESSAGE value="booking cancellation scenario added" />
+    <MESSAGE value="E2E complete scenario added" />
+    <option name="LAST_COMMIT_MESSAGE" value="E2E complete scenario added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -208,7 +213,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java</url>
-          <line>86</line>
+          <line>82</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>

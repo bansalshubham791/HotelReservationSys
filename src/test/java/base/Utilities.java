@@ -27,6 +27,12 @@ public class Utilities {
         AUTHORIZATION = LoadProperties.getProperty("authorization");
         return given().header("Content-Type", CONTENT_TYPE).accept(CONTENT_TYPE).header("Authorization", AUTHORIZATION);
     }
+
+    /**
+     * requestPutSetup(DataTable) is used for modifying the booking details
+     * @param dataTable
+     * @return RequestSpecification
+     */
     public RequestSpecification requestPutSetup(DataTable dataTable){
         baseURI = LoadProperties.getProperty("base.URL");
         CONTENT_TYPE = LoadProperties.getProperty("content.type");
@@ -47,11 +53,14 @@ public class Utilities {
         return given().header("Content-Type", CONTENT_TYPE).accept(CONTENT_TYPE).header("Authorization", AUTHORIZATION).body(updateRequest);
     }
 
+    /**
+     * requestDeleteSetup() is used for deleting any booking
+     * @return RequestSpecification
+     */
     public RequestSpecification requestDeleteSetup(){
         baseURI = LoadProperties.getProperty("base.URL");
         CONTENT_TYPE = LoadProperties.getProperty("content.type");
         AUTHORIZATION = LoadProperties.getProperty("authorization");
         return given().header("Content-Type", CONTENT_TYPE).accept(CONTENT_TYPE).header("Authorization", AUTHORIZATION);
     }
-
 }
