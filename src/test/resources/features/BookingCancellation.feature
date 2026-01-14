@@ -30,7 +30,7 @@ Feature: Cancel hotel booking
     Then the booking should not be successfully cancelled with response code 401
     And the user should see an error message "Authentication required"
 
-  @Negative
+  @Negative @ErrorValidation
   Scenario: Cancel a non-existent booking
     Given no booking exists with booking id "99999"
     When the user cancels the booking
