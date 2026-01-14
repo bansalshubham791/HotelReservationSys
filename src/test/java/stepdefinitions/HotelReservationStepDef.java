@@ -30,7 +30,7 @@ public class HotelReservationStepDef extends Utilities {
     protected String authToken;
     private RequestSpecification bookingSpec;
     private RequestSpecification loginRequest;
-
+    private Response updateResponse;
 
     @Given("the user submits valid login credentials:")
     public void the_user_submits_valid_login_credentials(DataTable dataTable) {
@@ -76,7 +76,7 @@ public class HotelReservationStepDef extends Utilities {
         bookingRequestBody.put("lastname", row.get("lastname"));
         bookingRequestBody.put("email", row.get("email"));
         bookingRequestBody.put("phone", row.get("phone"));
-        bookingRequestBody.put("roomid", Integer.parseInt(row.get("roomid")));
+        bookingRequestBody.put("roomid", generateRandomRoomId());
         bookingRequestBody.put("bookingdates", bookingdates);
         bookingRequestBody.put("depositpaid", Boolean.parseBoolean(row.get("depositpaid")));
 
@@ -148,13 +148,9 @@ public class HotelReservationStepDef extends Utilities {
         bookingResponse.then().log().body();
         bookingResponse.then()
                 .assertThat()
-                .body(JsonSchemaValidator.matchesJsonSchemaInClasspath(schemaFileName));
+                .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("jsonSchema/"+schemaFileName));
     }
 
-    @Given("the user wants to check the room summary")
-    public void theUserWantsToCheckTheRoomSummary() {
-
-    }
 
     @Then("the user should see response with incorrect {string}")
     public void theUserShouldSeeResponseWithIncorrect(String expectedFieldError) {
@@ -164,5 +160,40 @@ public class HotelReservationStepDef extends Utilities {
                 responseBody.contains(expectedFieldError),
                 "Expected error message not found. Actual response: " + responseBody
         );
+    }
+    @Given("the user wants to check the room booking summary")
+    public void theUserWantsToCheckTheRoomSummary() {
+        bookingSpec = requestGetSetup().cookie("token", authToken);
+    }
+
+    @When("the user asks the room booking summary for {string}")
+    public void theUserAsksTheRoomSummaryFor(String roomid) {
+        bookingSpec = bookingSpec.queryParam("roomid", roomid);
+        bookingResponse = bookingSpec.when().get("api/booking");
+
+    }
+
+    @Then("the room booking summary response should be successful")
+    public void theBookingSummaryResponseShouldBeSuccessful() {
+
+        assertEquals(200, bookingResponse.statusCode(),
+                "Expected HTTP 200 for booking summary");
+    }
+
+    @Then("the booking should be successfully updated with response code {int}")
+    public void theBookingShouldBeSuccessfullyUpdatedWithResponseCode(Integer expectedStatus) {
+        assertEquals(updateResponse.getStatusCode(), expectedStatus.intValue(),
+                "Unexpected status code");
+    }
+
+
+    @When("the user updates the existing booking with the following details:")
+    public void theUserUpdatesTheExistingBookingWithTheFollowingDetails(DataTable dataTable) {
+        String bookingId = bookingResponse.getBody().jsonPath().getString("bookingid");
+        updateResponse = requestPutSetup(dataTable)
+                        .cookie("token", authToken)
+                        .when()
+                        .put("api/booking/" + bookingId);
+        updateResponse.then().log().body();
     }
 }
