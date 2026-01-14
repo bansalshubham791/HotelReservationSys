@@ -31,6 +31,7 @@ public class HotelReservationStepDef extends Utilities {
     private RequestSpecification bookingSpec;
     private RequestSpecification loginRequest;
     private Response updateResponse;
+    private Response cancelResponse;
 
     @Given("the user submits valid login credentials:")
     public void the_user_submits_valid_login_credentials(DataTable dataTable) {
@@ -124,8 +125,8 @@ public class HotelReservationStepDef extends Utilities {
     @When("the user asks the details of the room by:")
     public void theUserAsksTheDetailsOfTheRoomByRoomIdRoomid(String roomid) {
         bookingResponse = bookingSpec.when().get("api/room/"+roomid);
-        bookingResponse.then().log().body();
-        System.out.println(bookingResponse.body().toString());
+        //bookingResponse.then().log().body();
+        //System.out.println(bookingResponse.body().toString());
     }
 
     @Then("details of the room is available:")
@@ -195,5 +196,72 @@ public class HotelReservationStepDef extends Utilities {
                         .when()
                         .put("api/booking/" + bookingId);
         updateResponse.then().log().body();
+    }
+
+    @When("the user cancels the booking")
+    public void theUserCancelsTheBooking() {
+
+        // bookingId should already be set from a previous step
+        String bookingId = bookingResponse.getBody().jsonPath().getString("bookingid");
+        cancelResponse = requestDeleteSetup()
+                        .cookie("token", authToken)
+                        .when()
+                        .delete("api/booking/" + bookingId);
+        cancelResponse.then().log().body();
+    }
+    @Then("the booking should be successfully cancelled with response code {int}")
+    public void theBookingShouldBeSuccessfullyCancelledWithResponseCode(int statusCode) {
+
+        assertEquals(cancelResponse.getStatusCode(), statusCode,
+                "Unexpected status code");
+    }
+    @And("the booking should no longer be retrievable")
+    public void theBookingShouldNoLongerBeRetrievable() {
+        String bookingId = bookingResponse.getBody().jsonPath().getString("bookingid");
+        bookingResponse =   requestGetSetup()
+                            .cookie("token", authToken)
+                            .when()
+                            .get("api/booking/" + bookingId);
+
+        assertEquals(404, bookingResponse.statusCode(),
+                "Booking should not be retrievable after cancellation"
+        );
+    }
+
+    @Given("a booking exists with booking id")
+    public void aBookingExistsWithBookingId() {
+        //String bookingId = bookingResponse.getBody().jsonPath().getString("bookingid");
+        assertTrue(bookingResponse.getBody().asString().contains("bookingid"),
+                "Response does not indicate missing parameter. Actual response: " + bookingResponse.getBody().asString());
+
+    }
+
+    @When("the user attempts to cancel the booking without authentication")
+    public void theUserAttemptsToCancelTheBookingWithoutAuthentication() {
+        String bookingId = bookingResponse.getBody().jsonPath().getString("bookingid");
+        cancelResponse = requestDeleteSetup()
+                .when()
+                .delete("api/booking/" + bookingId);    //cookie removed from request
+    }
+
+    @Then("the booking should not be successfully cancelled with response code {int}")
+    public void theBookingShouldNotBeSuccessfullyCancelledWithResponseCode(int statusCode) {
+        assertEquals(cancelResponse.getStatusCode(), statusCode,
+                "Unexpected status code");
+        cancelResponse.then().log().body();
+    }
+
+    @And("the user should see an error message {string}")
+    public void theUserShouldSeeAnErrorMessage(String message) {
+        assertEquals(cancelResponse.getBody().jsonPath().getString("error"), message,
+                "Unexpected error");
+    }
+
+    @Given("no booking exists with booking id {string}")
+    public void noBookingExistsWithBookingId(String bookingId) {
+        cancelResponse = requestDeleteSetup()
+                .cookie("token", authToken)
+                .when()
+                .delete("api/booking/" + bookingId);
     }
 }

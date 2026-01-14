@@ -47,4 +47,11 @@ public class Utilities {
         return given().header("Content-Type", CONTENT_TYPE).accept(CONTENT_TYPE).header("Authorization", AUTHORIZATION).body(updateRequest);
     }
 
+    public RequestSpecification requestDeleteSetup(){
+        baseURI = LoadProperties.getProperty("base.URL");
+        CONTENT_TYPE = LoadProperties.getProperty("content.type");
+        AUTHORIZATION = LoadProperties.getProperty("authorization");
+        return given().header("Content-Type", CONTENT_TYPE).accept(CONTENT_TYPE).header("Authorization", AUTHORIZATION);
+    }
+
 }
