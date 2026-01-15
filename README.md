@@ -46,8 +46,6 @@ It validates key hotel booking functionalities such as room availability, room d
 
 **Guest searches for available rooms for a valid stay period**
 
-**Guest searches for available rooms for a valid stay period**
-
 **Update an existing booking**
 
 **create an auth token**
@@ -62,7 +60,9 @@ It validates key hotel booking functionalities such as room availability, room d
 
 **Attempt to retrieve booking details using an invalid room ID**
 
+**User attempts login with different invalid credentials**
 
+**Successful hotel room booking creation, modification and cancellation**
 ---
 
 ## 🔍 APIs Covered
