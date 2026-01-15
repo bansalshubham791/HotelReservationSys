@@ -115,6 +115,7 @@ mvn test -Dcucumber.options="--glue src/test/java/stepDefinitions src/test/resou
 5️⃣ View Reports
 
 Extent Reports: target/extent-reports/
+
 TestReport/Hotel Reservation API Test Report.html
 
 Cucumber HTML Reports: target/cucumber-reports/
