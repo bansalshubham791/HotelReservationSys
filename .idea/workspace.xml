@@ -4,20 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="tags added">
+    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="tags added, schema name updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/base/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hooks/ExtentReportManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hooks/ExtentReportManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runner/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runner/TestRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/BookingCancellation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/bookingCancellation.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/BookingCreation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/bookingCreation.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/BookingEdition.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/bookingEdition.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/E2E_Test.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/e2e_Test.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GetBookingDetails.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/getBookingDetails.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GetBookingReport.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/getBookingReport.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GetRoomDetails.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/getRoomDetails.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GetRoomsAvailability.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/getRoomsAvailability.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/login.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/jsonSchema/booking.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/jsonSchema/getBookingDetails.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/jsonSchema/room.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/jsonSchema/getRoomDetails.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/HotelReservationStepDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/bookingCancellation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/cancelBooking.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/bookingCreation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/createBooking.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/bookingEdition.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/modifyBooking.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/e2e_Test.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/e2eTest.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/getBookingDetails.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/getBookingDetails.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/getBookingReport.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/getBookingReport.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/getRoomDetails.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/getRoomDetails.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/getRoomsAvailability.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/getRoomsAvailability.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/login.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,8 +65,21 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="hotelreservation_api_automation" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="hotelreservation_api_automation" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run" type="TestNG">
-      <module name="HotelReservationSys" />
+      <module name="hotelreservation_api_automation" />
       <shortenClasspath name="NONE" />
       <useClassPathOnly />
       <option name="SUITE_NAME" value="" />
@@ -230,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768399838676</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="tags added, schema name updated">
+      <option name="closed" value="true" />
+      <created>1768401553175</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1768401553175</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -268,7 +292,8 @@
     <MESSAGE value="Login scenarios added" />
     <MESSAGE value="for regression" />
     <MESSAGE value="tags added" />
-    <option name="LAST_COMMIT_MESSAGE" value="tags added" />
+    <MESSAGE value="tags added, schema name updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="tags added, schema name updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -280,18 +305,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/base/Utilities.java</url>
-          <line>82</line>
+          <line>87</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java</url>
-          <line>334</line>
-          <option name="timeStamp" value="24" />
+          <url>file://$PROJECT_DIR$/src/test/java/stepDefinitions/HotelReservationStepDef.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java</url>
-          <line>340</line>
-          <option name="timeStamp" value="25" />
+          <url>file://$PROJECT_DIR$/src/test/java/stepDefinitions/HotelReservationStepDef.java</url>
+          <line>216</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

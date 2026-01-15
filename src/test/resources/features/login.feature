@@ -6,21 +6,21 @@ Feature: Hotel booking login
 
   @authentication
   Scenario: create an auth token
-  When the user submits valid login credentials:
-  | username | admin    |
-  | password | password |
-  Then the system should authenticate the user
-  And the user should receive a valid session
+    When the user submits valid login credentials:
+      | username | password |
+      | admin    | password |
+    Then the system should authenticate the user
+    And the user should receive a valid session
 
-    @error-validation @login-authentication
-  Scenario Outline: User attempts login with different credentials
+  @error-validation @login-authentication
+  Scenario Outline: User attempts login with different invalid credentials
     Given the user attempts to log in to the hotel booking system
     When the user submits the following credentials
-      | username | password |
+      | username   | password   |
       | <username> | <password> |
     Then the system should return the response "<response>"
 
     Examples:
-      | username   | password   | response  |
-      | admin1     | password   | 401       |
-      | admin      | Password12 | 401       |
+      | username | password   | response |
+      | admin1   | password   | 401      |
+      | admin    | Password12 | 401      |

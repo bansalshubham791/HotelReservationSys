@@ -3,10 +3,8 @@ package base;
 
 import io.cucumber.datatable.DataTable;
 import io.restassured.specification.RequestSpecification;
-import org.json.simple.JSONObject;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -19,6 +17,7 @@ public class Utilities {
 
     /**
      * generateRandomRoomId() method is used to generate random no.
+     *
      * @return String
      */
     public String generateRandomRoomId() {
@@ -29,6 +28,7 @@ public class Utilities {
 
     /**
      * requestGetSetup() method is used for creating request for getting the booking details.
+     *
      * @return RequestSpecification
      */
     public RequestSpecification requestGetSetup() {
@@ -40,10 +40,11 @@ public class Utilities {
 
     /**
      * requestPutSetup() is used for creating request for modifying the booking details.
+     *
      * @param dataTable
      * @return RequestSpecification
      */
-    public RequestSpecification requestPutSetup(DataTable dataTable){
+    public RequestSpecification requestPutSetup(DataTable dataTable) {
         baseURI = LoadProperties.getProperty("base.URL");
         CONTENT_TYPE = LoadProperties.getProperty("content.type");
         AUTHORIZATION = LoadProperties.getProperty("authorization");
@@ -65,9 +66,10 @@ public class Utilities {
 
     /**
      * requestDeleteSetup() is used for creating request for deleting any booking.
+     *
      * @return RequestSpecification
      */
-    public RequestSpecification requestDeleteSetup(){
+    public RequestSpecification requestDeleteSetup() {
         baseURI = LoadProperties.getProperty("base.URL");
         CONTENT_TYPE = LoadProperties.getProperty("content.type");
         AUTHORIZATION = LoadProperties.getProperty("authorization");
@@ -75,43 +77,9 @@ public class Utilities {
     }
 
     /**
-     * requestPostSetup() method is used for creating request for creating a booking.
-     * @param dataTable
      * @return RequestSpecification
      */
-    public RequestSpecification requestPostSetup(DataTable dataTable){
-        baseURI = LoadProperties.getProperty("base.URL");
-        CONTENT_TYPE = LoadProperties.getProperty("content.type");
-        AUTHORIZATION = LoadProperties.getProperty("authorization");
-        List<Map<String, String>> rows =
-                dataTable.asMaps(String.class, String.class);
-
-        Map<String, String> row = rows.get(0);
-
-        JSONObject bookingRequestBody = new JSONObject();
-
-        // Build bookingdates object
-        JSONObject bookingdates = new JSONObject();
-
-        bookingdates.put("checkin", row.get("checkin"));
-        bookingdates.put("checkout", row.get("checkout"));
-
-        bookingRequestBody.put("firstname", row.get("firstname"));
-        bookingRequestBody.put("lastname", row.get("lastname"));
-        bookingRequestBody.put("email", row.get("email"));
-        bookingRequestBody.put("phone", row.get("phone"));
-        bookingRequestBody.put("roomid", generateRandomRoomId());
-        bookingRequestBody.put("bookingdates", bookingdates);
-        bookingRequestBody.put("depositpaid", Boolean.parseBoolean(row.get("depositpaid")));
-
-        return given().header("Content-Type", CONTENT_TYPE).accept(CONTENT_TYPE).header("Authorization", AUTHORIZATION).body(bookingRequestBody.toString());
-    }
-
-    /**
-     *
-     * @return RequestSpecification
-     */
-    public RequestSpecification requestGetRoomDetailsSetup(){
+    public RequestSpecification requestGetRoomDetailsSetup() {
         baseURI = LoadProperties.getProperty("base.URL");
         CONTENT_TYPE = LoadProperties.getProperty("content.type");
         AUTHORIZATION = LoadProperties.getProperty("authorization");
@@ -119,10 +87,9 @@ public class Utilities {
     }
 
     /**
-     *
      * @return RequestSpecification
      */
-    public RequestSpecification requestGetRoomAvailabilitySetup(){
+    public RequestSpecification requestGetRoomAvailabilitySetup() {
         baseURI = LoadProperties.getProperty("base.URL");
         CONTENT_TYPE = LoadProperties.getProperty("content.type");
         AUTHORIZATION = LoadProperties.getProperty("authorization");
@@ -130,10 +97,9 @@ public class Utilities {
     }
 
     /**
-     *
      * @return RequestSpecification
      */
-    public RequestSpecification requestGetReportSetup(){
+    public RequestSpecification requestGetReportSetup() {
         baseURI = LoadProperties.getProperty("base.URL");
         CONTENT_TYPE = LoadProperties.getProperty("content.type");
         AUTHORIZATION = LoadProperties.getProperty("authorization");

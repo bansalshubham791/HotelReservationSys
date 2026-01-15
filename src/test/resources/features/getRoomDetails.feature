@@ -7,8 +7,8 @@ Feature: View hotel room information
 
   Background: create an auth token
     When the user submits valid login credentials:
-      | username | admin    |
-      | password | password |
+      | username | password |
+      | admin    | password |
     Then the system should authenticate the user
     And the user should receive a valid session
 
@@ -21,8 +21,8 @@ Feature: View hotel room information
     And the room should display its price per night
     And the room should list the amenities available to the guest
 
-  @negative @error-validation @non-existent-room
-  Scenario: Guest attempts to view details of a Nonon-existent room
+  @negative @error-validation @non-existing-room
+  Scenario: Guest attempts to view details of a non-existing room
     Given the hotel offers rooms for booking
     When the guest requests details for a room that does not exist like 100
     Then the system should inform the guest that the room could not be found

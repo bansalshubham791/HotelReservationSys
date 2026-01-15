@@ -24,6 +24,44 @@ It validates key hotel booking functionalities such as room availability, room d
 - **Extent Reports v5.1.1**
 
 ---
+## 🔍covered scenarios
+
+**Successful hotel room booking**
+
+**create a booking with incorrect field values**
+
+**create a booking when user give checkout date as earlier than check in date**
+
+**Successful hotel room booking creation, modification and cancellation**
+
+**Get the details of the room by room id**
+
+**Get the room booking summary**
+
+**Hotel manager generates a booking report**
+
+**Guest attempts to view details of a non-existing room**
+
+**Guest views details of an available hotel room**
+
+**Guest searches for available rooms for a valid stay period**
+
+**Guest searches for available rooms for a valid stay period**
+
+**Update an existing booking**
+
+**create an auth token**
+
+**Cancel an existing booking successfully**
+
+**Cancel booking without authentication**
+
+**Cancel a non-existing booking**
+
+**Unauthorized user attempts to retrieve booking details**
+
+**Attempt to retrieve booking details using an invalid room ID**
+
 
 ---
 
@@ -37,6 +75,26 @@ It validates key hotel booking functionalities such as room availability, room d
 
 - **Booking Report**  
   `GET /api/report`
+- 
+- **Login Auth**  
+  `POST /api/auth/login 
+
+- **Create Booking**  
+  `POST api/booking
+
+- **Create Booking**  
+  `POST api/booking
+
+- **Cancel Booking**  
+  `DELETE api/booking/<bookingid>
+
+- **Booking Details**  
+  `GET api/booking
+
+- **Modify Booking**  
+  `PUT api/booking/
+
+
 
 ---
 
@@ -49,7 +107,7 @@ mvn clean compile
 3️⃣ Run All Tests
 mvn test
 4️⃣ Run Specific Feature File (Optional)
-mvn test -Dcucumber.options="--glue src/test/java/stepdefinitions src/test/resources/features/get_room_details.feature"
+mvn test -Dcucumber.options="--glue src/test/java/stepDefinitions src/test/resources/features/get_room_details.feature"
 
 5️⃣ View Reports
 

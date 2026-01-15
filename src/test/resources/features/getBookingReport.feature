@@ -7,12 +7,12 @@ Feature: Generate hotel booking report
 
   Background: create an auth token
     When the user submits valid login credentials:
-      | username | admin    |
-      | password | password |
+      | username | password |
+      | admin    | password |
     Then the system should authenticate the user
     And the user should receive a valid session
 
-    @get-report @hotel-management
+  @get-report @hotel-management
   Scenario: Hotel manager generates a booking report
     Given the hotel has booking data available
     When the hotel manager requests the booking report

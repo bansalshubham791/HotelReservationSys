@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepDefinitions;
 
 import base.Utilities;
 import io.cucumber.datatable.DataTable;
@@ -35,49 +35,44 @@ public class HotelReservationStepDef extends Utilities {
     private Response roomAvailabilityResponse;
     private RequestSpecification reportRequest;
     private Response reportResponse;
+    JSONObject bookingdates = new JSONObject();
 
     @Given("the user submits valid login credentials:")
     public void the_user_submits_valid_login_credentials(DataTable dataTable) {
-        Map<String, String> data = dataTable.asMap(String.class, String.class);
-        JSONObject requestBody = new JSONObject();
-        requestBody.put("username", data.get("username"));
-        requestBody.put("password", data.get("password"));
-
-        loginRequest = given().body(requestBody.toString());
+        List<Map<String, String>> credentials = dataTable.asMaps(String.class, String.class);
+        JSONObject obj = new JSONObject();
+        obj.put("username", credentials.get(0).get("username"));
+        ;
+        obj.put("password", credentials.get(0).get("password"));
+        loginRequest = given().body(obj.toString());
         loginRequest.header("Authorization", "automationintesting.online");
         loginRequest.header("Content-Type", "application/json");
-        //loginRequest = requestPostLoginSetup(dataTable);
     }
+
     @Then("the system should authenticate the user")
     public void theSystemShouldAuthenticateTheUser() {
         loginResponse = loginRequest.when().post("https://automationintesting.online/api/auth/login");
         authToken = loginResponse.getBody().jsonPath().getString("token");
-         loginResponse.then().log().all();
+        loginResponse.then().log().all();
     }
+
     @And("the user should receive a valid session")
     public void theUserShouldReceiveAValidSession() {
         bookingSpec = given()
                 .cookie("token", authToken);
-       // System.out.println(bookingSpec.cookie("token").toString());
-    }
-
-    @Given("the room is available for the desired dates")
-    public void theUserEntersGuestDetails(DataTable dataTable) {
-        if (bookingSpec == null){
-            bookingSpec = given();
-        }
-        bookingSpec = requestPostSetup(dataTable);
+        assertEquals(loginResponse.getStatusCode(), 200,
+                "Unexpected status code");
     }
 
     @And("the user submits the booking")
     public void theUserSubmitsTheBooking() {
-        bookingResponse = bookingSpec.when().post("api/booking");
+        bookingResponse = bookingSpec.when().post("https://automationintesting.online/api/booking");
     }
 
-    @Then("the booking should be successfully created with response code {int}")
-    public void theBookingShouldBeSuccessfullyCreatedWithResponseCode(Integer expectedStatus) {
+    @Then("the booking should be successfully created")
+    public void theBookingShouldBeSuccessfullyCreated() {
         bookingResponse.then().log().all();
-        assertEquals(bookingResponse.getStatusCode(), expectedStatus.intValue(),
+        assertEquals(bookingResponse.getStatusCode(), 201,
                 "Unexpected status code");
     }
 
@@ -94,7 +89,7 @@ public class HotelReservationStepDef extends Utilities {
 
     @When("the user asks the details of the room by:")
     public void theUserAsksTheDetailsOfTheRoomByRoomIdRoomid(String roomid) {
-        bookingResponse = bookingSpec.when().get("api/room/"+roomid);
+        bookingResponse = bookingSpec.when().get("api/room/" + roomid);
     }
 
     @Then("details of the room is available:")
@@ -114,28 +109,29 @@ public class HotelReservationStepDef extends Utilities {
         bookingResponse.then().log().body();
         bookingResponse.then()
                 .assertThat()
-                .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("jsonSchema/"+schemaFileName));
+                .body(JsonSchemaValidator.matchesJsonSchemaInClasspath
+                        ("jsonSchema/" + schemaFileName));
     }
 
 
-    @Then("the user should see response with incorrect {string}")
-    public void theUserShouldSeeResponseWithIncorrect(String expectedFieldError) {
+    @Then("the user gets {string} error message")
+    public void theUserGetsErrorMessage(String expectedFieldError) {
         String responseBody = bookingResponse.getBody().asString();
         assertTrue(
                 responseBody.contains(expectedFieldError),
                 "Expected error message not found. Actual response: " + responseBody
         );
     }
+
     @Given("the user wants to check the room booking summary")
     public void theUserWantsToCheckTheRoomSummary() {
         bookingSpec = requestGetSetup().cookie("token", authToken);
     }
 
-    @When("the user asks the room booking summary for {string}")
-    public void theUserAsksTheRoomSummaryFor(String roomid) {
+    @When("the user asks the room booking summary for roomid{string}")
+    public void theUserAsksTheRoomSummaryForRoomID(String roomid) {
         bookingSpec = bookingSpec.queryParam("roomid", roomid);
         bookingResponse = bookingSpec.when().get("api/booking");
-
     }
 
     @Then("the room booking summary response should be successful")
@@ -156,9 +152,9 @@ public class HotelReservationStepDef extends Utilities {
     public void theUserUpdatesTheExistingBookingWithTheFollowingDetails(DataTable dataTable) {
         String bookingId = bookingResponse.getBody().jsonPath().getString("bookingid");
         updateResponse = requestPutSetup(dataTable)
-                        .cookie("token", authToken)
-                        .when()
-                        .put("api/booking/" + bookingId);
+                .cookie("token", authToken)
+                .when()
+                .put("api/booking/" + bookingId);
         updateResponse.then().log().body();
     }
 
@@ -168,24 +164,26 @@ public class HotelReservationStepDef extends Utilities {
         // bookingId should already be set from a previous step
         String bookingId = bookingResponse.getBody().jsonPath().getString("bookingid");
         cancelResponse = requestDeleteSetup()
-                        .cookie("token", authToken)
-                        .when()
-                        .delete("api/booking/" + bookingId);
+                .cookie("token", authToken)
+                .when()
+                .delete("api/booking/" + bookingId);
         cancelResponse.then().log().body();
     }
-    @Then("the booking should be successfully cancelled with response code {int}")
-    public void theBookingShouldBeSuccessfullyCancelledWithResponseCode(int statusCode) {
 
-        assertEquals(cancelResponse.getStatusCode(), statusCode,
-                "Unexpected status code");
+    @Then("the booking should be successfully cancelled")
+    public void theBookingShouldBeSuccessfullyCancelledWithResponseCode() {
+
+        assertEquals(cancelResponse.getStatusCode(), 200,
+                "some problem with room cancellation");
     }
+
     @And("the booking should no longer be retrievable")
     public void theBookingShouldNoLongerBeRetrievable() {
         String bookingId = bookingResponse.getBody().jsonPath().getString("bookingid");
-        bookingResponse =   requestGetSetup()
-                            .cookie("token", authToken)
-                            .when()
-                            .get("api/booking/" + bookingId);
+        bookingResponse = requestGetSetup()
+                .cookie("token", authToken)
+                .when()
+                .get("api/booking/" + bookingId);
 
         assertEquals(404, bookingResponse.statusCode(),
                 "Booking should not be retrievable after cancellation"
@@ -194,7 +192,6 @@ public class HotelReservationStepDef extends Utilities {
 
     @Given("a booking exists with booking id")
     public void aBookingExistsWithBookingId() {
-        //String bookingId = bookingResponse.getBody().jsonPath().getString("bookingid");
         assertTrue(bookingResponse.getBody().asString().contains("bookingid"),
                 "Response does not indicate missing parameter. Actual response: " + bookingResponse.getBody().asString());
 
@@ -208,9 +205,9 @@ public class HotelReservationStepDef extends Utilities {
                 .delete("api/booking/" + bookingId);    //cookie removed from request
     }
 
-    @Then("the booking should not be successfully cancelled with response code {int}")
-    public void theBookingShouldNotBeSuccessfullyCancelledWithResponseCode(int statusCode) {
-        assertEquals(cancelResponse.getStatusCode(), statusCode,
+    @Then("the booking should not be successfully cancelled")
+    public void theBookingShouldNotBeSuccessfullyCancelled() {
+        assertEquals(cancelResponse.getStatusCode(), 401,
                 "Unexpected status code");
         cancelResponse.then().log().body();
     }
@@ -314,12 +311,12 @@ public class HotelReservationStepDef extends Utilities {
     public void theSystemShouldGenerateTheBookingReport() {
         reportResponse.then().log().body();
         assertEquals(reportResponse.getStatusCode(), 200,
-                "Unexpected error");
+                "booking report is not generated");
     }
 
     @Given("the user attempts to log in to the hotel booking system")
     public void theUserAttemptsToLogInToTheHotelBookingSystem() {
-        if (loginRequest == null){
+        if (loginRequest == null) {
             loginRequest = given();
         }
         loginRequest.header("Authorization", "automationintesting.online");
@@ -342,5 +339,77 @@ public class HotelReservationStepDef extends Utilities {
                 "Unexpected error");
     }
 
+    @When("user tries to create a booking:")
+    public void userTriesToCreateABooking(DataTable dataTable) {
+        List<Map<String, String>> rows =
+                dataTable.asMaps(String.class, String.class);
 
+        Map<String, String> row = rows.get(0);
+        JSONObject bookingRequestBody = new JSONObject();
+        bookingRequestBody.put("firstname", row.get("firstname"));
+        bookingRequestBody.put("lastname", row.get("lastname"));
+        bookingRequestBody.put("email", row.get("email"));
+        bookingRequestBody.put("phone", row.get("phone"));
+        bookingRequestBody.put("roomid", generateRandomRoomId());
+        bookingRequestBody.put("bookingdates", bookingdates);
+        bookingRequestBody.put("depositpaid", Boolean.parseBoolean(row.get("depositpaid")));
+        if (bookingSpec == null) {
+            bookingSpec = given();
+        }
+        bookingSpec = given()
+                .cookie("token", authToken)
+                .header("Content-Type", "application/json")
+                .header("Authorization", "automationintesting.online")
+                .body(bookingRequestBody.toString());
+    }
+
+    @And("the user is unable to create a booking")
+    public void theUserIsUnableToCreateABooking() {
+        assertEquals(bookingResponse.getStatusCode(), 409,
+                "Unexpected status code");
+
+    }
+
+    @Given("user gives checkin date as {string} and checkout date as {string}")
+    public void userGivesDateAndDate(String checkin, String checkout) {
+        bookingdates.put("checkin", checkin);
+        bookingdates.put("checkout", checkout);
+    }
+
+    @Given("the user is not authenticated")
+    public void theUserIsNotAuthenticated() {
+        bookingSpec = requestGetSetup();
+    }
+
+    @Then("the system should deny access")
+    public void theSystemShouldDenyAccess() {
+        assertEquals(bookingResponse.getStatusCode(), 401,
+                "Unexpected status code");
+    }
+
+    @And("the booking should not be cancelled")
+    public void theBookingShouldNotBeCancelled() {
+        assertEquals(cancelResponse.getStatusCode(), 500,
+                "Unexpected status code");
+        cancelResponse.then().log().body();
+    }
+
+    @Then("the system should not show any valid room")
+    public void theSystemShouldNotShowAnyValidRoom() {
+        bookingResponse.then().log().body();
+        bookingResponse.then().body("rooms", nullValue());
+    }
+
+    @When("the user asks the room booking summary for roomid {int}")
+    public void theUserAsksTheRoomBookingSummaryForRoomid(int roomid) {
+        bookingSpec = bookingSpec.queryParam("roomid", String.valueOf(roomid));
+        bookingResponse = bookingSpec.when().get("api/booking");
+    }
+
+
+    @And("the user should see an auth error message {string}")
+    public void theUserShouldSeeAnAuthErrorMessage(String message) {
+        assertEquals(bookingResponse.getBody().jsonPath().getString("error"), message,
+                "Unexpected Auth");
+    }
 }

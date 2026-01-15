@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = {"stepdefinitions", "hooks"}, tags = "@hotel-reservation-system-regression",
+        glue = {"stepDefinitions", "hooks"}, tags = "@hotel-reservation-system-regression",
         plugin = {"pretty", "html:target/cucumber-report.html"},
         monochrome = true
 )

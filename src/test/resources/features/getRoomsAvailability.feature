@@ -6,8 +6,8 @@ Feature: Search for available hotel rooms
 
   Background: create an auth token
     When the user submits valid login credentials:
-      | username | admin    |
-      | password | password |
+      | username | password |
+      | admin    | password |
     Then the system should authenticate the user
     And the user should receive a valid session
 
