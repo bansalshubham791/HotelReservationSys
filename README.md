@@ -75,7 +75,7 @@ It validates key hotel booking functionalities such as room availability, room d
 
 - **Booking Report**  
   `GET /api/report`
-- 
+
 - **Login Auth**  
   `POST /api/auth/login 
 
@@ -102,10 +102,13 @@ It validates key hotel booking functionalities such as room availability, room d
 1️⃣ Clone the Repository
 git clone https://github.com/bansalshubham791/HotelReservationSys.git
 cd HotelReservationSys
+
 2️⃣ Clean and Compile the Project
 mvn clean compile
+
 3️⃣ Run All Tests
 mvn test
+
 4️⃣ Run Specific Feature File (Optional)
 mvn test -Dcucumber.options="--glue src/test/java/stepDefinitions src/test/resources/features/get_room_details.feature"
 
