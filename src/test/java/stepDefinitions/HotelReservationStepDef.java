@@ -42,7 +42,6 @@ public class HotelReservationStepDef extends Utilities {
         List<Map<String, String>> credentials = dataTable.asMaps(String.class, String.class);
         JSONObject obj = new JSONObject();
         obj.put("username", credentials.get(0).get("username"));
-        ;
         obj.put("password", credentials.get(0).get("password"));
         loginRequest = given().body(obj.toString());
         loginRequest.header("Authorization", "automationintesting.online");

@@ -4,23 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="tags added, schema name updated">
+    <list default="true" id="7ea8d9db-205b-47ae-af17-8a82c0f06bfb" name="Changes" comment="readme file modifications">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/Utilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hooks/ExtentReportManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hooks/ExtentReportManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runner/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runner/TestRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/HotelReservationStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/HotelReservationStepDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/bookingCancellation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/cancelBooking.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/bookingCreation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/createBooking.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/bookingEdition.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/modifyBooking.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/e2e_Test.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/e2eTest.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/getBookingDetails.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/getBookingDetails.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/getBookingReport.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/getBookingReport.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/getRoomDetails.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/getRoomDetails.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/HotelReservationStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/HotelReservationStepDef.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/getRoomsAvailability.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/getRoomsAvailability.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/login.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/properties/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/properties/app.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +244,31 @@
       <option name="project" value="LOCAL" />
       <updated>1768401553175</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="enhancements in cancel booking and createbook">
+      <option name="closed" value="true" />
+      <created>1768447323369</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1768447323369</updated>
+    </task>
+    <task id="LOCAL-00020" summary="readme file modification">
+      <option name="closed" value="true" />
+      <created>1768447971502</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1768447971502</updated>
+    </task>
+    <task id="LOCAL-00021" summary="readme file modifications">
+      <option name="closed" value="true" />
+      <created>1768448059364</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1768448059364</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -272,6 +286,17 @@
         <option value="Default.Date" />
         <option value="Default.Subject" />
       </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
@@ -293,7 +318,10 @@
     <MESSAGE value="for regression" />
     <MESSAGE value="tags added" />
     <MESSAGE value="tags added, schema name updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="tags added, schema name updated" />
+    <MESSAGE value="enhancements in cancel booking and createbook" />
+    <MESSAGE value="readme file modification" />
+    <MESSAGE value="readme file modifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme file modifications" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -304,19 +332,9 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/base/Utilities.java</url>
-          <line>87</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/stepDefinitions/HotelReservationStepDef.java</url>
-          <line>68</line>
+          <line>83</line>
           <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/stepDefinitions/HotelReservationStepDef.java</url>
-          <line>216</line>
-          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

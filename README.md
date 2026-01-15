@@ -110,7 +110,7 @@ mvn clean compile
 mvn test
 
 4️⃣ Run Specific Feature File (Optional)
-mvn test -Dcucumber.options="--glue src/test/java/stepDefinitions src/test/resources/features/get_room_details.feature"
+mvn test -Dcucumber.options="--glue src/test/java/stepDefinitions src/test/resources/features/getRoomDetails.feature"
 
 5️⃣ View Reports
 
